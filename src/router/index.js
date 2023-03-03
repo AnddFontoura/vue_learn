@@ -5,6 +5,7 @@ import CalculatorView from '../views/CalculatorView.vue'
 import IfView from '../views/ifView.vue'
 import ForView from '../views/ForView.vue'
 import ApiView from '../views/ApiView.vue'
+import BuscaCepView from '../views/BuscaCepView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,11 @@ const router = createRouter({
       path: '/api',
       name: 'api',
       component: ApiView
+    },
+    {
+      path: '/busca-cep',
+      name: 'busca-cep',
+      component: BuscaCepView,
     },
     {
       path: '/about',

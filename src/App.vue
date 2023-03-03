@@ -18,6 +18,7 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/if">If Examples</RouterLink>
         <RouterLink to="/for">For Examples</RouterLink>
         <RouterLink to="/api">Api Examples</RouterLink>
+        <RouterLink to="/busca-cep">Busca CEP</RouterLink>
       </nav>
     </div>
   </header>

@@ -1,6 +1,5 @@
 <script>
 import axios from 'axios'
-import { isVNode } from 'vue';
 
   export default {
     data() {
