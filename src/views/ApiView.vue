@@ -1,21 +1,34 @@
 <script>
 import axios from 'axios'
+import { isVNode } from 'vue';
 
   export default {
     data() {
       return {
-        pokemon: null,
+        pokemonName: null,
+        pokemonImage: null,
+        pokemonTagType: [],
         info: null
       }
     },
     mounted() {
-        axios.get('https://pokeapi.co/api/v2/pokemon/1')
-        .then( response => (this.info = response))
+        this.pokemonName = "Aguardando"
+        this.pokemonImage = "https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921"
     },
     methods: {
       getPokemon() {
-        axios.get('https://pokeapi.co/api/v2/pokemon/2')
-        .then( response => (this.info = response))
+        let searchPokemonId = pokemonId.value;
+        let pokemonData = [];
+
+        this.pokemonImage = "https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921"
+        axios.get('https://pokeapi.co/api/v2/pokemon/' + searchPokemonId)
+        .then( responses => (
+          this.pokemonName = responses.data.name, 
+          this.pokemonImage = responses.data.sprites.front_default 
+          )
+        )
+      
+        console.log(this.pokemonImage)
       }
     }
   }
@@ -23,8 +36,14 @@ import axios from 'axios'
 
 <template>
     <div class="api-reflex">
-      <h1> Teste </h1>
+      <h1> Informações de Pokemons </h1>
+      <input type="number" id="pokemonId">
       <button @click="getPokemon()"> Get new pokemon </button>
+      
+      <div class="pokeInfo">
+        {{ pokemonName }}
+        <img v-bind:src="pokemonImage"> 
+      </div>
       {{ info }}
     </div>
   </template>
