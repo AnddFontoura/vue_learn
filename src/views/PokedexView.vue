@@ -51,7 +51,7 @@
             
             <div class="col-md-6 col-sm-12 col-lg-6 mt-3">
               <ul class='list-group'>
-                <li class="list-group-item" v-for="pokemonList in pokemons">{{ pokemons.name }}</li>
+                <li class="list-group-item" v-for="pokemons in pokemonList">{{ pokemons.name }}</li>
               </ul>
             </div>
         </div>
